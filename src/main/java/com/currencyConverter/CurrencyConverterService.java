@@ -52,6 +52,6 @@ public class CurrencyConverterService {
                                                   @NonNull String destinationCurrencyCode) {
 
         double amountInDestinationCurrencyCode = currencyDetails.getConversionRates().get(destinationCurrencyCode) * conversionAmount;
-        return destinationCurrencyCode + amountInDestinationCurrencyCode;
+        return destinationCurrencyCode + " " + amountInDestinationCurrencyCode;
     }
 }
