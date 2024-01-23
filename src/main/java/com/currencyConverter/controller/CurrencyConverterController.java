@@ -1,5 +1,6 @@
-package com.currencyConverter;
+package com.currencyConverter.controller;
 
+import com.currencyConverter.service.CurrencyExchangeProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CurrencyConverterController {
 
     @Autowired
-    private CurrencyConverterService currencyConverterService;
+    private CurrencyExchangeProcessingService currencyConverterService;
 
     @GetMapping("/")
     public String index() {
@@ -19,7 +20,7 @@ public class CurrencyConverterController {
 
     @GetMapping("/convert/currency")
     public String convertCurrency(@RequestParam @NonNull String currencyInput) {
-        return currencyConverterService.convertCurrency(currencyInput);
+        return currencyConverterService.processCurrencyConversion(currencyInput);
     }
 
 
