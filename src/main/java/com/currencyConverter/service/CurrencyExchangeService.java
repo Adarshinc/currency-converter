@@ -25,6 +25,7 @@ public class CurrencyExchangeService {
     public CurrencyConversion updateCurrencyExchangeDetails(CurrencyDetails currencyDetails) {
         CurrencyConversion currencyConversion = new CurrencyConversion();
         currencyConversion.setSourceCurrency(currencyDetails.getBaseCode());
+        currencyConversion.setConversionRates(currencyDetails.getConversionRates());
         // check this - Adarsh, update this
         ZoneId istZone = ZoneId.of("Asia/Kolkata");
         LocalDateTime currentTime = LocalDateTime.now();

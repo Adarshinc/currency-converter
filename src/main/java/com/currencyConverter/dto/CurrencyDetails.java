@@ -11,7 +11,7 @@ public class CurrencyDetails {
     @JsonProperty("result")
     private String result;
 
-    @JsonProperty("base_property")
+    @JsonProperty("base_code")
     private String baseCode;
 
     @JsonProperty("conversion_rates")
