@@ -28,7 +28,7 @@ public class RestCurrencyConverterService {
     @PostConstruct
     public void init() {
 
-        Optional<SystemProperty> systemProperty = systemPropertyRepository.findById("exchange.rate.api.key");
+        Optional<SystemProperty> systemProperty = systemPropertyRepository.findByName("exchange.rate.api.key");
         systemProperty.ifPresent(property -> exchangeRateApiKey = property.getValue());
     }
 
@@ -43,7 +43,7 @@ public class RestCurrencyConverterService {
             throw new RuntimeException(errorMessage);
         }
 
-        String apiUrl = exchangeRateApiBaseUrl.replace("{key}",exchangeRateApiKey);
+        String apiUrl = exchangeRateApiBaseUrl.replace("{key}",exchangeRateApiKey) + sourceCurrencyCode;
         return restTemplate.getForObject(apiUrl, CurrencyDetails.class);
         // check this - Adarsh, need to handle the correct http status codes, you can use restTemplate.exchange to get entire ResponseEntity object itself.
     }
