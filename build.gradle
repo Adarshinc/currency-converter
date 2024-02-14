@@ -37,5 +37,12 @@ jar {
 				'Main-Class': 'com.currencyConverter.CurrencyConverterApp'
 		)
 	}
+
+	archiveBaseName = 'CURRENCY-CONVERTER'
+	archiveVersion = 'SNAPSHOT'
+
+	// Include version in the file name
+	version = '1.0-SNAPSHOT'
+
 }
 
